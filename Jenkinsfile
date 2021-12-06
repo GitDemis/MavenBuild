@@ -19,9 +19,9 @@ node('master') {
 		archiveArtifacts artifacts: 'target/*.war'
 	}
 	
-	//stage ('Deployment'){
-	//	deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://18.234.188.179:8080/')], contextPath: 'counterwebapp', war: 'target/*.war'
-	//}
+	stage ('Deployment'){
+		deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://18.234.188.179:8080/')], contextPath: 'counterwebapp', war: 'target/*.war'
+	}
 	
 	stage ('Notification'){
 		emailext (
